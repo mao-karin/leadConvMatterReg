@@ -17,7 +17,13 @@
     const componentName = 'c:leadConvMatterRegScreenFlow';
     const lightningEndpoint = 'https://phifinneymcdonald2020--regoform.sandbox.my.site.com';
     const targetElement = document.querySelector("[data-lightning-out]");
-    const componentAttributes = {};
+    
+    // read url paramater
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const componentAttributes = {
+        recordId: urlParams.get('recordId')
+    };
 
     $Lightning.use(
         appName,
